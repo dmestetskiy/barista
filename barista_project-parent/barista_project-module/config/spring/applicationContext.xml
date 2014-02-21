@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="maxAmountOfIngredient" class="java.lang.Integer">
+		<constructor-arg value="10" />
+	</bean>
+
+	<bean id="ingredients" class="barista.objects.ingredients.IngredientsListImpl"
+		init-method="processFile">
+		<property name="maxAmount" ref="maxAmountOfIngredient" />
+		<property name="ingredientsFile" value="config/ingredients.properties" />
+	</bean>
+
+	<bean id="drinks" class="barista.objects.drinks.DrinksListImpl"
+		init-method="processFile">
+		<property name="drinksFile" value="config/drinks.properties" />
+		<property name="ingredients" ref="ingredients" />
+	</bean>
+
+</beans>
