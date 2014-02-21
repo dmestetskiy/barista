@@ -15,3 +15,5 @@ The menu consists of :
 source is provided under barista_project-parent
 
 accepted commands are: 1-6, r - to restock, q -to quit
+
+startApplication is the main class
